@@ -1,10 +1,10 @@
-package com.y2tek.tests;
+package com.qa.demo.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.y2tek.base.BaseTest;
-import com.y2tek.utils.AppConstants;
+import com.qa.demo.base.BaseTest;
+import com.qa.demo.utils.AppConstants;
 
 public class LoginPageTest extends BaseTest {
 

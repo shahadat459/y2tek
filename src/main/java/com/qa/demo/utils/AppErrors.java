@@ -1,4 +1,4 @@
-package com.y2tek.utils;
+package com.qa.demo.utils;
 
 public class AppErrors {
 

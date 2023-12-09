@@ -1,4 +1,4 @@
-package com.y2tek.factory;
+package com.qa.demo.factory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.y2tek.frameworkexception.FrameWorkException;
+import com.qa.demo.frameworkexception.FrameWorkException;
 
 public class DriverFactory {
 
@@ -63,72 +62,53 @@ public class DriverFactory {
 
 	public Properties initProp() {
 
+		// mvn clean install
+		// mvn clean install -Denv="qa"
+
 		Properties prop = new Properties();
 		FileInputStream ip = null;
+
+		String envName = System.getProperty("env");
+		System.out.println("Environment name is:" + envName);
 		try {
-			ip = new FileInputStream("./src/main/resources/config/config.properties");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			if (envName == null) {
+				System.out.println("No env is given .....hence running it on QA env...");
+				ip = new FileInputStream("./src/main/resources/config/config.properties");
+			} else {
+				System.out.println("Running test cases on environment: " + envName);
+				switch (envName.toLowerCase().trim()) {
+				case "qa":
+					ip = new FileInputStream("./src/main/resources/config/qa.config.properties");
+					break;
+				case "dev":
+					ip = new FileInputStream("./src/main/resources/config/dev.config.properties");
+					break;
+				case "stage":
+					ip = new FileInputStream("./src/main/resources/config/stage.config.properties");
+					break;
+				case "uat":
+
+					ip = new FileInputStream("./src/main/resources/config/uat.config.properties");
+					break;
+
+				default:
+					System.out.println("Plz pass the right env name : " + envName);
+					throw new FrameWorkException("NOVALIDENVGIVEN");
+				}
+			}
+		}
+
+		catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+
 		try {
 			prop.load(ip);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return prop;
 	}
-
-//	public Properties initProp() {
-//
-//		// mvn clean install
-//		// mvn clean install -Denv="qa"
-//
-//		Properties prop = new Properties();
-//		FileInputStream ip = null;
-//
-//		String envName = System.getProperty("env");
-//		System.out.println("Environment name is:" + envName);
-//		try {
-//			if (envName == null) {
-//				System.out.println("No env is given .....hence running it on QA env...");
-//				ip = new FileInputStream("./src/main/resources/config/config.properties");
-//			} else {
-//				System.out.println("Running test cases on environment: " + envName);
-//				switch (envName.toLowerCase().trim()) {
-//				case "qa":
-//					ip = new FileInputStream("./src/main/resources/config/qa.config.properties");
-//					break;
-//				case "dev":
-//					ip = new FileInputStream("./src/main/resources/config/dev.config.properties");
-//					break;
-//				case "stage":
-//					ip = new FileInputStream("./src/main/resources/config/stage.config.properties");
-//					break;
-//				case "uat":
-//
-//					ip = new FileInputStream("./src/main/resources/config/uat.config.properties");
-//					break;
-//
-//				default:
-//					System.out.println("Plz pass the right env name : " + envName);
-//					throw new FrameWorkException("NOVALIDENVGIVEN");
-//				}
-//			}
-//		}
-//
-//		catch (FileNotFoundException e) {
-//			e.printStackTrace();
-//		}
-//
-//		try {
-//			prop.load(ip);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return prop;
-//	}
 
 	// take screenshot
 	public static String getScreenshot() {

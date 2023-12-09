@@ -1,4 +1,4 @@
-package com.y2tek.factory;
+package com.qa.demo.factory;
 
 import java.util.Properties;
 

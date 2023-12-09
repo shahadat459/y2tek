@@ -1,4 +1,4 @@
-package com.y2tek.utils;
+package com.qa.demo.utils;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.y2tek.factory.DriverFactory;
-import com.y2tek.frameworkexception.FrameWorkException;
+import com.qa.demo.factory.DriverFactory;
+import com.qa.demo.frameworkexception.FrameWorkException;
 
 public class ElementUtil {
 

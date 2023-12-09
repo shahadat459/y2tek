@@ -1,4 +1,4 @@
-package com.y2tek.utils;
+package com.qa.demo.utils;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

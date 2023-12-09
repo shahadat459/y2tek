@@ -1,4 +1,4 @@
-package com.y2tek.frameworkexception;
+package com.qa.demo.frameworkexception;
 
 public class FrameWorkException extends RuntimeException{
 

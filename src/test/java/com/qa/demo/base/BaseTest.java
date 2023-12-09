@@ -1,4 +1,4 @@
-package com.y2tek.base;
+package com.qa.demo.base;
 
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
@@ -6,9 +6,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
-import com.y2tek.factory.DriverFactory;
-import com.y2tek.pages.DashBoardPage;
-import com.y2tek.pages.LoginPage;
+
+import com.qa.demo.factory.DriverFactory;
+import com.qa.demo.pages.DashBoardPage;
+import com.qa.demo.pages.LoginPage;
 
 public class BaseTest {
 

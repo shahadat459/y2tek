@@ -1,4 +1,4 @@
-package com.y2tek.listeners;
+package com.qa.demo.listeners;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.y2tek.factory.DriverFactory;
+import com.qa.demo.factory.DriverFactory;
 
 public class ExtentReportListener implements ITestListener {
 

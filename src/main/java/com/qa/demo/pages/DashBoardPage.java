@@ -1,4 +1,4 @@
-package com.y2tek.pages;
+package com.qa.demo.pages;
 
 public class DashBoardPage {
 
