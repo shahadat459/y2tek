@@ -14,11 +14,16 @@ public class LoginPageTest extends BaseTest {
 		Assert.assertEquals(actTitle, AppConstants.LOGIN_PAGE_TITLE_VALUE);
 	}
 
-	@Test() 
+	@Test(groups = { "abc" })
 	public void loginTest() {
 		dbPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		// Assert.assertTrue(dbPage.isLogoutLinkExist()); //
 		// Assert.assertTrue(dbPage.getAccPageTitle().equals("My Account2"));
+	}
+
+	@Test(groups = { "abc" })
+	public void demo() {
+		//
 	}
 
 }

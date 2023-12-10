@@ -19,13 +19,11 @@ public class LoginWithInvalidCredPageTest extends BaseTest {
 	public Object[][] loginData() {
 		Object[][] loginData = ExcelUtil.getTestData(AppConstants.LOGIN_SHEET_NAME);
 		return  loginData;
-
 	}
 
 	@Test(dataProvider = "loginExcelData")
 	public void loginTest(String username, String pwd) {
 		dbPage = loginPage.doLogin(username, pwd);
-
 	}
 
 }
